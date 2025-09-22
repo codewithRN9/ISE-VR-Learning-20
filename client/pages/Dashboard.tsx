@@ -1,4 +1,10 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
@@ -9,27 +15,39 @@ import { Award, Star, Target, Trophy } from "lucide-react";
 export default function Dashboard() {
   const { user } = useAuth();
   const level = user ? Math.floor(user.points / 100) + 1 : 1;
-  const progress = user ? (user.points % 100) : 0;
+  const progress = user ? user.points % 100 : 0;
 
   return (
     <main id="content" className="container py-10">
-      <h1 className="text-3xl font-bold">Welcome{user ? `, ${user.name}` : ""} 👋</h1>
-      <p className="mt-1 text-muted-foreground">Track progress, continue modules, and celebrate wins.</p>
+      <h1 className="text-3xl font-bold">
+        Welcome{user ? `, ${user.name}` : ""} 👋
+      </h1>
+      <p className="mt-1 text-muted-foreground">
+        Track progress, continue modules, and celebrate wins.
+      </p>
 
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-3">
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center gap-2"><Trophy className="h-5 w-5 text-primary"/> Level {level}</CardTitle>
-            <CardDescription>Earn 100 pts to reach the next level.</CardDescription>
+            <CardTitle className="flex items-center gap-2">
+              <Trophy className="h-5 w-5 text-primary" /> Level {level}
+            </CardTitle>
+            <CardDescription>
+              Earn 100 pts to reach the next level.
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <Progress value={progress} className="h-3" />
-            <div className="mt-2 text-sm text-muted-foreground">{progress} / 100</div>
+            <div className="mt-2 text-sm text-muted-foreground">
+              {progress} / 100
+            </div>
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center gap-2"><Star className="h-5 w-5 text-primary"/> Points</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <Star className="h-5 w-5 text-primary" /> Points
+            </CardTitle>
             <CardDescription>Total points earned</CardDescription>
           </CardHeader>
           <CardContent>
@@ -38,11 +56,15 @@ export default function Dashboard() {
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center gap-2"><Target className="h-5 w-5 text-primary"/> Current Goal</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <Target className="h-5 w-5 text-primary" /> Current Goal
+            </CardTitle>
             <CardDescription>Complete 2 VR tasks today</CardDescription>
           </CardHeader>
           <CardContent>
-            <Button asChild><Link to="/vr">Continue VR Module</Link></Button>
+            <Button asChild>
+              <Link to="/vr">Continue VR Module</Link>
+            </Button>
           </CardContent>
         </Card>
       </div>
@@ -55,9 +77,13 @@ export default function Dashboard() {
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-2">
-              {(user?.badges?.length ? user.badges : ["First Steps"]).map((b)=> (
-                <Badge key={b} className="bg-primary"><Award className="mr-1 h-3 w-3"/> {b}</Badge>
-              ))}
+              {(user?.badges?.length ? user.badges : ["First Steps"]).map(
+                (b) => (
+                  <Badge key={b} className="bg-primary">
+                    <Award className="mr-1 h-3 w-3" /> {b}
+                  </Badge>
+                ),
+              )}
             </div>
           </CardContent>
         </Card>

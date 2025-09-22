@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { useAuth } from "@/context/AuthContext";
 import { SimpleScene } from "@/components/vr/SimpleScene";
 import { toast } from "@/components/ui/use-toast";
@@ -10,7 +16,10 @@ export default function VRLearning() {
   const completeTask = () => {
     addPoints(25);
     awardBadge("VR Explorer");
-    toast({ title: "Great job!", description: "You earned 25 points and a badge." });
+    toast({
+      title: "Great job!",
+      description: "You earned 25 points and a badge.",
+    });
   };
 
   const narrate = (text: string) => {
@@ -27,15 +36,33 @@ export default function VRLearning() {
         <Card>
           <CardHeader>
             <CardTitle>Practice: Cross the Street</CardTitle>
-            <CardDescription>Look left and right, wait for the signal, and cross safely.</CardDescription>
+            <CardDescription>
+              Look left and right, wait for the signal, and cross safely.
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="aspect-video overflow-hidden rounded-lg border">
-              <SimpleScene onHint={() => narrate("Look left and right, wait for the signal, and cross safely.")} />
+              <SimpleScene
+                onHint={() =>
+                  narrate(
+                    "Look left and right, wait for the signal, and cross safely.",
+                  )
+                }
+              />
             </div>
             <div className="mt-4 flex flex-wrap gap-3">
-              <Button onClick={()=>narrate("Look left and right, wait for the signal, and cross safely.")}>Play Instructions</Button>
-              <Button variant="secondary" onClick={completeTask}>Mark Step Complete</Button>
+              <Button
+                onClick={() =>
+                  narrate(
+                    "Look left and right, wait for the signal, and cross safely.",
+                  )
+                }
+              >
+                Play Instructions
+              </Button>
+              <Button variant="secondary" onClick={completeTask}>
+                Mark Step Complete
+              </Button>
             </div>
           </CardContent>
         </Card>
@@ -60,7 +87,10 @@ export default function VRLearning() {
               <CardDescription>Consistent effort is celebrated</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">Finish this module to earn a star and unlock the "VR Explorer" badge.</p>
+              <p className="text-sm text-muted-foreground">
+                Finish this module to earn a star and unlock the "VR Explorer"
+                badge.
+              </p>
             </CardContent>
           </Card>
         </div>

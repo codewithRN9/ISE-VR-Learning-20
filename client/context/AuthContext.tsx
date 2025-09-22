@@ -42,8 +42,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [user]);
 
   const login = async (email: string, _password: string) => {
-    setUser((prev) =>
-      prev ?? { email, name: email.split("@")[0], points: 0, badges: [] },
+    setUser(
+      (prev) =>
+        prev ?? { email, name: email.split("@")[0], points: 0, badges: [] },
     );
     navigate("/dashboard");
   };
@@ -71,7 +72,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const value = useMemo(
-    () => ({ user, isAuthenticated: !!user, login, register, logout, addPoints, awardBadge }),
+    () => ({
+      user,
+      isAuthenticated: !!user,
+      login,
+      register,
+      logout,
+      addPoints,
+      awardBadge,
+    }),
     [user],
   );
 

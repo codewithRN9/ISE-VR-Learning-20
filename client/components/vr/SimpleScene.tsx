@@ -9,7 +9,9 @@ export function SimpleScene({ onHint }: { onHint?: () => void }) {
       <color attach="background" args={["#eef4ff"]} />
       <ambientLight intensity={0.7} />
       <directionalLight position={[5, 5, 5]} intensity={0.8} />
-      <gridHelper args={[10, 10, new THREE.Color("#93c5fd"), new THREE.Color("#bfdbfe")]} />
+      <gridHelper
+        args={[10, 10, new THREE.Color("#93c5fd"), new THREE.Color("#bfdbfe")]}
+      />
       <InteractiveObjects onHint={onHint} />
       <OrbitControls enablePan={false} />
     </Canvas>

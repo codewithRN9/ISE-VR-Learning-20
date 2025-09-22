@@ -14,8 +14,25 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"],
-        easyread: ["Atkinson Hyperlegible", "Inter", "ui-sans-serif", "system-ui"],
+        sans: [
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+        ],
+        easyread: [
+          "Atkinson Hyperlegible",
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+        ],
       },
       colors: {
         border: "hsl(var(--border))",
